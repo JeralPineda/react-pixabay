@@ -65,20 +65,25 @@ function App() {
          <div className='row justify-content-center'>
             <ListImage images={images} />
 
-            <button
-               //
-               className='btn btn-info mr-1'
-               onClick={paginaAnterior}
-            >
-               &laquo; Anterior
-            </button>
-            <button
-               //
-               className='btn btn-info mr-1'
-               onClick={paginaSiguiente}
-            >
-               Siguiente &raquo;
-            </button>
+            {paginaActual === 1 ? null : (
+               <button
+                  //
+                  className='btn btn-info mr-1'
+                  onClick={paginaAnterior}
+               >
+                  &laquo; Anterior
+               </button>
+            )}
+
+            {paginaActual === totalPaginas ? null : (
+               <button
+                  //
+                  className='btn btn-info mr-1'
+                  onClick={paginaSiguiente}
+               >
+                  Siguiente &raquo;
+               </button>
+            )}
          </div>
       </div>
    );
