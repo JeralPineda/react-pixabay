@@ -30,6 +30,10 @@ function App() {
          const calcularTotalPaginas = Math.ceil(resultado.totalHits / imagenesPorPagina);
 
          setTotalPaginas(calcularTotalPaginas);
+
+         // Mover la pagina hacia arriba cada que cambia de pagina
+         const jumbotron = document.querySelector('.jumbotron');
+         jumbotron.scrollIntoView({ behavior: 'smooth' });
       };
       consultarApi();
    }, [busqueda, paginaActual]);
