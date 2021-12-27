@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import Formulario from './components/Formulario';
+import ListImage from './components/ListImage';
 
 function App() {
    // State de la app
    const [busqueda, setBusqueda] = useState('');
+   const [images, setImages] = useState([]);
 
    useEffect(() => {
       const consultarApi = async () => {
@@ -20,7 +22,7 @@ function App() {
          const resultado = await respuesta.json();
 
          // Guardamos el resultado en el estado
-         setBusqueda(resultado.hits);
+         setImages(resultado.hits);
       };
       consultarApi();
    }, [busqueda]);
@@ -31,6 +33,10 @@ function App() {
             <p className='lead text-center'>Buscador de Imágenes</p>
 
             <Formulario setBusqueda={setBusqueda} />
+         </div>
+
+         <div className='row justify-content-center'>
+            <ListImage images={images} />
          </div>
       </div>
    );
