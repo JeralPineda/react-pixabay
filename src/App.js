@@ -36,6 +36,24 @@ function App() {
       consultarApi();
    }, [busqueda]);
 
+   // Definir la pagina anterior
+   const paginaAnterior = () => {
+      const nuevaPaginaActual = paginaActual - 1;
+
+      if (nuevaPaginaActual === 0) return;
+
+      setPaginaActual(nuevaPaginaActual);
+   };
+
+   // Definir la pagina siguiente
+   const paginaSiguiente = () => {
+      const nuevaPaginaActual = paginaActual + 1;
+
+      if (nuevaPaginaActual > totalPaginas) return;
+
+      setPaginaActual(nuevaPaginaActual);
+   };
+
    return (
       <div className='content'>
          <div className='jumbotron'>
@@ -46,6 +64,21 @@ function App() {
 
          <div className='row justify-content-center'>
             <ListImage images={images} />
+
+            <button
+               //
+               className='btn btn-info mr-1'
+               onClick={paginaAnterior}
+            >
+               &laquo; Anterior
+            </button>
+            <button
+               //
+               className='btn btn-info mr-1'
+               onClick={paginaSiguiente}
+            >
+               Siguiente &raquo;
+            </button>
          </div>
       </div>
    );
