@@ -18,9 +18,7 @@ function App() {
          const imagenesPorPagina = 30;
          const key = process.env.REACT_APP_API_KEY;
 
-         const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}`;
-
-         //    &page=${paginaactual}
+         const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
 
          const respuesta = await fetch(url);
          const resultado = await respuesta.json();
@@ -34,7 +32,7 @@ function App() {
          setTotalPaginas(calcularTotalPaginas);
       };
       consultarApi();
-   }, [busqueda]);
+   }, [busqueda, paginaActual]);
 
    // Definir la pagina anterior
    const paginaAnterior = () => {
