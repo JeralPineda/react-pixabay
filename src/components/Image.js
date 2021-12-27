@@ -12,6 +12,23 @@ const Image = ({ imagen }) => {
                src={previewURL}
                alt={tags}
             />
+
+            <div className='card-body'>
+               <p className='card-text'>{likes} Me Gusta</p>
+               <p className='card-text'>{views} Vistas</p>
+            </div>
+
+            <div className='card-footer'>
+               <a
+                  //
+                  className='btn btn-outline-secondary btn-block'
+                  href={largeImageURL}
+                  target='_blank'
+                  rel='noopener noreferrer'
+               >
+                  Ver Imagen
+               </a>
+            </div>
          </div>
       </div>
    );
